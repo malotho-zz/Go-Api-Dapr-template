@@ -65,7 +65,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              namespace: $(k8sNamespace)
+              namespace: default
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection) 
               kubernetesServiceConnection: $(kubernetesServiceConnection)
@@ -75,5 +75,5 @@ stages:
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                961019/golangapis:$(tag)
 
