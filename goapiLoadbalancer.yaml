@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: goapiserviceapp
+  labels:
+    app: goapi
+spec:
+  selector:
+    app: goapi
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3500
+  type: LoadBalancer

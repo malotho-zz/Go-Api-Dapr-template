@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goapiapp
+  labels:
+    app: goapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goapi
+  template:
+    metadata:
+      labels:
+        app: goapi
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/id: "goapi"
+        dapr.io/port: "8080" 
+        dapr.io/log-level: "debug"
+    spec:
+      containers:
+      - name: goapiapp
+        image: 961019/golangapis:$(tag)
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+    
